@@ -12,16 +12,17 @@ function onScroll() {
 }
 
 function activateMenuAtCurrentSection(section) {
-  const targetLine = scrollY + innerHeight /2
+  const targetLine = scrollY + innerHeight / 2
 
-  const sectionTop = section.offsetTop 
-  const sectionHeight = section.offsetHeight 
+  const sectionTop = section.offsetTop
+  const sectionHeight = section.offsetHeight
   const sectionTopReachOrPassTargetLine = targetLine >= sectionTop
 
-  const sectionEndsAt = sectionTop + sectionHeight 
+  const sectionEndsAt = sectionTop + sectionHeight
   const sectionEndPassedTargetLine = sectionEndsAt <= targetLine
-  
-  const sectionBoundaries = sectionTopReachOrPassTargetLine && !sectionEndPassedTargetLine
+
+  const sectionBoundaries =
+    sectionTopReachOrPassTargetLine && !sectionEndPassedTargetLine
 
   const sectionID = section.getAttribute('id')
   const menuElement = document.querySelector(`.menu a[href*=${sectionID}]`)
@@ -33,6 +34,7 @@ function activateMenuAtCurrentSection(section) {
 }
 
 function showNavOnScroll() {
+  const navigation = document.getElementById('navigation')
   if (scrollY > 0) {
     navigation.classList.add('scroll')
   } else {
@@ -41,6 +43,7 @@ function showNavOnScroll() {
 }
 
 function showBackToTopBtnOnScroll() {
+  const backToTopButton = document.getElementById('backToTopBtn')
   if (scrollY > 530) {
     backToTopBtn.classList.add('show')
   } else {
